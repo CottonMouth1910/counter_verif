@@ -1,5 +1,0 @@
-23:always #50 clk = ~clk;      // BUG-1: half-period should be #5 for a 10ns clock
-31:    #7 rst_n = 1;           // BUG-2: reset released too early, should hold for #20 (2 cycles)
-44:`ifdef DEBUG
-45:        $display("UVM_INFO: [DEBUG] time=%0t clk=%0b rst_n=%0b en=%0b count=%0d", $time, clk, rst_n, en, count);
-48:        if (count = exp_count) begin     // BUG-3: assignment '=' used instead of equality '=='
