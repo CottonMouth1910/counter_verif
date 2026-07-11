@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-scripts/log_analyzer.py
+scripts/log_analyzer.py  
 
 Reads config/test_config.yaml to get the list of tests, then analyzes
 the logs from a single regression run:
