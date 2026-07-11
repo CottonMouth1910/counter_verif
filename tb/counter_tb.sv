@@ -1,6 +1,5 @@
 
 `timescale 1ns/1ps
-
 module counter_tb;
 
 logic clk;
@@ -37,15 +36,15 @@ initial begin
         #1;
 
         if (up_down)
-            exp_count == exp_count + 1'b1;
+            exp_count = exp_count + 1'b1;
         else
-            exp_count == exp_count - 1'b1;
+            exp_count = exp_count - 1'b1;
 
 `ifdef DEBUG
         $display("UVM_INFO: [DEBUG] time=%0t clk=%0b rst_n=%0b en=%0b count=%0d", $time, clk, rst_n, en, count);
 `endif
 
-        if (count == exp_count) begin     // BUG-3: assignment '=' used instead of equality '=='
+        if (count == exp_count) begin   
             $display("UVM_INFO: MATCH count=%0d exp=%0d time=%0t",
                      count, exp_count, $time);
         end
