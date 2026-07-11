@@ -1,0 +1,10 @@
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 17 2018
+Start time: 15:36:14 on Jul 11,2026
+vlog -work work ../rtl/counter.sv ../tb/counter_tb.sv -l ../logs/Saturday_20260711_153614/compile.log 
+-- Compiling module counter
+-- Compiling module counter_tb
+
+Top level modules:
+	counter_tb
+End time: 15:36:14 on Jul 11,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

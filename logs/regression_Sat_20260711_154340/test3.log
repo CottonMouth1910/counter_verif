@@ -1,0 +1,31 @@
+# vsim -c -lib work counter_tb_opt -sv_seed 3 "+TESTNAME=test3" "+UVM_VERBOSITY=UVM_MEDIUM" "+TIMEOUT_NS=5000" -l /home/thobiyas/Centralized_codes/git_space/counter_verif/logs/regression_Sat_20260711_154340/test3.log -do "run -all; quit -f" 
+# Start time: 15:43:42 on Jul 11,2026
+# //  Questa Sim-64
+# //  Version 10.7c linux_x86_64 Aug 17 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.counter_tb(fast)
+# Loading work.counter(fast)
+# run -all
+# UVM_INFO: MATCH count=1 exp=1 time=26000
+# UVM_INFO: MATCH count=2 exp=2 time=36000
+# UVM_INFO: MATCH count=3 exp=3 time=46000
+# UVM_INFO: MATCH count=4 exp=4 time=56000
+# UVM_INFO: MATCH count=5 exp=5 time=66000
+# TEST_CASE: counter_test RESULT: PASSED
+# UVM_WARNING: End of test reached, review waveform for timing.
+# ** Note: $finish    : ../tb/counter_tb.sv(64)
+#    Time: 66 ns  Iteration: 0  Instance: /counter_tb
+# End time: 15:43:42 on Jul 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

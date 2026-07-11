@@ -30,7 +30,7 @@ GUI_DO  ?= 0      # GUI_DO=1 -> execute run.do when GUI opens
 RUN_TS := $(shell date +%A_%Y%m%d_%H%M%S)
 RUN_DIR := $(LOG_DIR)/$(RUN_TS)
 
-.PHONY: lib compile opt sim clean
+.PHONY: lib compile opt sim run regress parse_log clean
 
 # -------------------------------------------------------------
 # 1. Create the working library
@@ -79,7 +79,34 @@ $(RUN_DIR):
 	mkdir -p $(RUN_DIR)
 
 # -------------------------------------------------------------
-# 5. Clean
+# 5. Run one test in batch mode, no GUI.
+#    Flat log at ../logs/<TESTNAME>.log (not timestamped) so
+#    scripts/log_analyzer.py can find it by test name.
+# -------------------------------------------------------------
+run: opt
+	vsim -c -quiet -lib $(LIB) $(OPT_TOP) \
+		-sv_seed $(SEED) \
+		+TESTNAME=$(TESTNAME) \
+		-l $(LOG_DIR)/$(TESTNAME).log \
+		-do "run -all; quit -f" > /dev/null 2>&1
+
+# -------------------------------------------------------------
+# 6. Regression: runs every test listed in config/test_config.yaml
+#    via scripts/regression_runner.py (batch mode, one flat log
+#    per test in ../logs/<test>.log).
+# -------------------------------------------------------------
+regress: opt
+	python3 ../scripts/regression_runner.py
+
+# -------------------------------------------------------------
+# 7. Parse logs and generate reports/summary.{csv,xlsx,yaml}
+#    via scripts/log_analyzer.py.
+# -------------------------------------------------------------
+parse_log:
+	python3 ../scripts/log_analyzer.py
+
+# -------------------------------------------------------------
+# 8. Clean
 # -------------------------------------------------------------
 clean:
 	rm -rf $(LIB)
@@ -99,6 +126,11 @@ help:
 	@echo "  make compile [DEFS=\"+define+DEBUG\"]    Compile RTL and TB"
 	@echo "  make opt                               Optimize design"
 	@echo "  make sim                               Run simulation and open Questa GUI"
+	@echo "  make run                               Run one test, batch mode, no GUI"
+	@echo "                                          -> ../logs/<TESTNAME>.log"
+	@echo "  make regress                           Run all tests from config/test_config.yaml"
+	@echo "                                          -> ../logs/<test>.log per test"
+	@echo "  make parse_log                         Analyze logs -> reports/summary.{csv,xlsx,yaml}"
 	@echo "  make clean                             Remove generated files"
 	@echo ""
 	@echo "Variables:"
@@ -106,16 +138,15 @@ help:
 	@echo "  SEED=<n>           Random seed (default: $(SEED))"
 	@echo "  DEFS=\"...\"         Extra vlog defines"
 	@echo "  NW=1               Do NOT open Questa GUI"
-	@echo "  GUI_DO=1           Open GUI and execute run.do"
-	@echo ""
 	@echo "Logs are written to ../logs/<YYYYMMDD_HHMMSS>/, one folder"
-	@echo "per 'make sim' invocation (compile.log, opt.log, sim log)."
-	@echo ""
 	@echo "Examples:"
 	@echo "  make sim"
 	@echo "  make sim TESTNAME=test1"
 	@echo "  make sim TESTNAME=test1 SEED=10"
 	@echo "  make sim TESTNAME=test1 SEED=10 NW=1"
 	@echo "  make sim TESTNAME=test1 GUI_DO=1"
+	@echo "  make run TESTNAME=test1 SEED=1"
+	@echo "  make regress"
+	@echo "  make parse_log"
 	@echo ""
 	@echo "========================================================"

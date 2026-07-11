@@ -1,0 +1,12 @@
+test,seed,errors,warnings,fatals,result
+test1,1,0,1,0,PASSED
+test2,2,0,1,0,PASSED
+test3,3,0,1,0,PASSED
+test4,4,0,1,0,PASSED
+test5,2,0,1,0,PASSED
+test6,3,0,1,0,PASSED
+test7,4,0,1,0,PASSED
+test8,3,0,1,0,PASSED
+test9,4,0,1,0,PASSED
+test10,3,0,1,0,PASSED
+test11,4,0,1,0,PASSED

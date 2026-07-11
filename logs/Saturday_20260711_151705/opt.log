@@ -1,0 +1,14 @@
+QuestaSim-64 vopt 10.7c Compiler 2018.08 Aug 17 2018
+Start time: 15:17:05 on Jul 11,2026
+vopt -work work "+acc" counter_tb -o counter_tb_opt -l ../logs/Saturday_20260711_151705/opt.log 
+
+Top level modules:
+	counter_tb
+
+Analyzing design...
+-- Loading module counter_tb
+-- Loading module counter
+Incremental compilation check found no design-units have changed.
+Optimized design name is counter_tb_opt
+End time: 15:17:05 on Jul 11,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

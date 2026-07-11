@@ -1,0 +1,5 @@
+test,errors,warnings,fatals,result
+test1,0,1,0,PASSED
+test2,0,1,0,PASSED
+test3,0,1,0,PASSED
+test4,0,1,0,PASSED

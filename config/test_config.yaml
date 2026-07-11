@@ -1,0 +1,64 @@
+# =============================================================
+# config/test_config.yaml
+# Test configuration for counter_verif regression
+# =============================================================
+
+# Common defaults shared by all tests, referenced via the merge
+# key (<<: *defaults) below. Only fields that differ from these
+# defaults need to be restated in an individual test entry.
+defaults: &defaults
+  verbosity: UVM_MEDIUM
+  timeout_ns: 100000
+
+tests:
+  - name: test1
+    seed: 1
+    <<: *defaults
+
+  - name: test2
+    seed: 2
+    <<: *defaults
+    verbosity: UVM_HIGH        # override: needs extra visibility
+
+  - name: test3
+    seed: 3
+    <<: *defaults
+    timeout_ns: 5000         # override: longer-running test
+
+  - name: test4
+    seed: 4
+    <<: *defaults
+    
+  - name: test5
+    seed: 2
+    <<: *defaults
+    verbosity: UVM_HIGH        # override: needs extra visibility
+
+  - name: test6
+    seed: 3
+    <<: *defaults
+    timeout_ns: 5000         # override: longer-running test
+
+  - name: test7
+    seed: 4
+    <<: *defaults
+  
+
+  - name: test8
+    seed: 3
+    <<: *defaults
+    timeout_ns: 5000         # override: longer-running test
+
+  - name: test9
+    seed: 4
+    <<: *defaults
+    
+    
+  - name: test10
+    seed: 3
+    <<: *defaults
+    timeout_ns: 500         # override: longer-running test
+
+  - name: test11
+    seed: 4
+    <<: *defaults
