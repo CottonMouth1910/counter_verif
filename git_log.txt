@@ -1,0 +1,15 @@
+*   ed00af3 Merge remote-tracking branch 'origin/dev/env-setup'
+|\  
+| * 0d9ca82 Yaml config + log analyzer
+| * efb83bf Make file and run.do
+| * fb57b98 vimrc + bug fixes
+| * 8950f8d workspace structure + bug report
+|/  
+* c4de129 --deleted
+* c8cc67b updating for last
+* 4df6268 creating TAG v1.0
+* 3c2ca73 updated tasks upto 3rd one
+* 6d7cb81 Fixed Bugs
+* 08ce5a2 updated vimrc and created a bug report.txt
+* 763e90b Adding RTL files & vimrc
+* 2de1b5c Initial commit for counter - saturday session task
