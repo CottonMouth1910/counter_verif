@@ -12,3 +12,4 @@ set wildmenu
 set smartcase
 nnoremap <F2> :w<CR>
 inoremap <F2> <Esc>:w<CR>a
+

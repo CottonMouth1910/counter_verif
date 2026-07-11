@@ -1,7 +1,7 @@
 # =============================================================
 # config/test_config.yaml
 # Test configuration for counter_verif regression
-# =============================================================
+# ================================================================
 
 # Common defaults shared by all tests, referenced via the merge
 # key (<<: *defaults) below. Only fields that differ from these
